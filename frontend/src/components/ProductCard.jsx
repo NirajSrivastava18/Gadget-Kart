@@ -121,10 +121,11 @@ const ProductCard = ({ product }) => {
         </Box>
         <Tooltip
           label="Add to cart"
-          bg="white"
+          bg="rgb(13,13,13)"
           placement="top"
-          color="grey.700"
+          color={'grey.800'}
           fontSize="1.2rem"
+          isDisabled={product.stock <= 0}
         >
           <Button
             varient="ghost"
