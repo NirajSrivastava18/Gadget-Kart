@@ -113,8 +113,8 @@ const ProductCard = ({ product }) => {
         <Rating rating={product.rating} numReviews={product.numReviews} />
       </Flex>
       <Flex justify="space-between">
-        <Box fontSize="2xl" color={useColorModeValue('grey.800', 'white')}>
-          <Box as="span" color={'grey.600'} fontSize="lg">
+        <Box fontSize="3xl" color={useColorModeValue('grey.800', 'white')}>
+          <Box as="span" color={'grey.600'} fontSize="3xl">
             ₹
           </Box>
           {product.price.toFixed(2)}
