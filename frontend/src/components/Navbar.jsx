@@ -42,7 +42,7 @@ const Navbar = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
   return (
-    <Box bg={useColorModeValue('gray.100', 'rgb(1, 6, 6)')} px={4}>
+    <Box bg={useColorModeValue('gray.100', '#161a1d')} px={4}>
       <Flex h={16} alignItems="center" justifyContent="space-between">
         <IconButton
           size="md"
