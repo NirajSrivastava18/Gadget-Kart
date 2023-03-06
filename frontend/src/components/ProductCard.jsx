@@ -4,7 +4,6 @@ import {
   Circle,
   Box,
   Image,
-  badge,
   useColorModeValue,
   Icon,
   Button,
@@ -19,7 +18,7 @@ import { TiShoppingCart } from 'react-icons/ti';
 import { Link as ReactLink } from 'react-router-dom';
 import { StarIcon } from '@chakra-ui/icons';
 
-const Rating = ({ rating, numReviews }) => {
+const Rating = ({ rating, numberOfReviews }) => {
   const { iconSize, setIconSize } = useState('14px');
   return (
     <Flex>
@@ -47,7 +46,7 @@ const Rating = ({ rating, numReviews }) => {
         />
       </HStack>
       <Text fontSize="md" fontWeight="bold" ml="4px">
-        {`${numReviews} ${numReviews === 1 ? 'Review' : 'Reviews'}`}
+        {`${numberOfReviews} ${numberOfReviews === 1 ? 'Review' : 'Reviews'}`}
       </Text>
     </Flex>
   );
@@ -66,7 +65,7 @@ const ProductCard = ({ product }) => {
       shadow="lg"
       position="relative"
     >
-      {product.isNew && (
+      {product.productisNew && (
         <Circle
           size="10px"
           position="absolute"
@@ -91,7 +90,7 @@ const ProductCard = ({ product }) => {
             Sold Out
           </Badge>
         )}
-        {product.isNew && (
+        {product.productisNew && (
           <Badge rounded="full" px="2" fontSize="0.8rem" colorScheme="green">
             New
           </Badge>
@@ -110,7 +109,10 @@ const ProductCard = ({ product }) => {
         </Link>
       </Flex>
       <Flex justify="space-between" alignItems="center" py="2">
-        <Rating rating={product.rating} numReviews={product.numReviews} />
+        <Rating
+          rating={product.rating}
+          numberOfReviews={product.numberOfReviews}
+        />
       </Flex>
       <Flex justify="space-between">
         <Box fontSize="3xl" color={useColorModeValue('grey.800', 'white')}>
