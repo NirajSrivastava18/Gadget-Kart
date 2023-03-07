@@ -13,10 +13,13 @@ import {
   HStack,
   Text,
   Badge,
+  useToast,
 } from '@chakra-ui/react';
 import { TiShoppingCart } from 'react-icons/ti';
 import { Link as ReactLink } from 'react-router-dom';
 import { StarIcon } from '@chakra-ui/icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { addCartItem } from '../redux/actions/cartActions';
 
 const Rating = ({ rating, numberOfReviews }) => {
   const { iconSize, setIconSize } = useState('14px');
@@ -53,6 +56,29 @@ const Rating = ({ rating, numberOfReviews }) => {
 };
 
 const ProductCard = ({ product }) => {
+  const dispatch = useDispatch();
+  const toast = useToast();
+  const cartInfo = useSelector((state) => state.cart);
+  const { cart } = cartInfo;
+
+  const addItem = (id) => {
+    if (cart.some((cartItem) => cartItem.id === id)) {
+      toast({
+        description:
+          'This items is already in the cart. Go to your cart to change the amount',
+        status: 'error',
+        isClosable: true,
+      });
+    } else {
+      dispatch(addCartItem(id, 1));
+      toast({
+        description: 'Items added successfully',
+        status: 'success',
+        isClosable: true,
+      });
+    }
+  };
+
   return (
     <Stack
       p="2"
@@ -133,6 +159,7 @@ const ProductCard = ({ product }) => {
             varient="ghost"
             display={'flex'}
             isDisabled={product.stock <= 0}
+            onClick={() => addItem(product._id)}
           >
             <Icon as={TiShoppingCart} h={7} w={7} alignSelf="center" />
           </Button>
