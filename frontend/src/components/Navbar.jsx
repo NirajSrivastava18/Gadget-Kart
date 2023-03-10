@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Flex,
@@ -41,6 +41,7 @@ const NavLink = ({ path, children }) => (
 const Navbar = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
+  const [isHovering, setIsHovering] = useState(false);
   return (
     <Box bg={useColorModeValue('gray.100', '#161a1d')} px={4}>
       <Flex h={16} alignItems="center" justifyContent="space-between">
@@ -51,9 +52,20 @@ const Navbar = () => {
           onClick={isOpen ? onClose : onOpen}
         />
         <HStack>
-          <Link as={ReactLink} to="/">
+          <Link
+            as={ReactLink}
+            to="/"
+            style={{ textDecoration: 'none' }}
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
+          >
             <Flex alignItems="center">
-              <Icon as={FaShoppingCart} h={6} w={6} color="orange.400" />
+              <Icon
+                as={FaShoppingCart}
+                h={6}
+                w={6}
+                color={isHovering ? 'orange.300' : 'orange.400'}
+              />
               <Text fontWeight="extrabold">GadgetKart</Text>
             </Flex>
           </Link>
