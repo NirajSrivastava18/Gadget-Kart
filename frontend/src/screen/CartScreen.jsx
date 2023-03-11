@@ -24,7 +24,7 @@ const CartScreen = () => {
   const { loading, error, cart } = cartInfo;
 
   const getHeadingContent = () =>
-    cart.length === 1 ? '(1 Item)' : `(${cart.length}Items)`;
+    cart.length === 1 ? '(1 Item)' : ` (${cart.length} Items) `;
 
   return (
     <Wrap spacing="30px" justify="center" minHeight="100vh">

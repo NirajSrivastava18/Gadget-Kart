@@ -77,7 +77,13 @@ export const Footer = () => (
               maxW={{ lg: '360px' }}
             >
               <Input placeholder="Enter your email" type="email" required />
-              <Button variant="primary" type="submit" flexShrink={0}>
+              <Button
+                variant="primary"
+                type="submit"
+                flexShrink={0}
+                bg={'orange.500'}
+                color="white"
+              >
                 Subscribe
               </Button>
             </Stack>

@@ -149,7 +149,7 @@ const ProductCard = ({ product }) => {
         </Box>
         <Tooltip
           label="Add to cart"
-          bg="rgb(13,13,13)"
+          bg="white"
           placement="top"
           color={'grey.800'}
           fontSize="1.2rem"

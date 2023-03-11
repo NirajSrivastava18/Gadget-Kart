@@ -30,7 +30,7 @@ const ProductsScreen = () => {
       spacing="30px"
       justify="center"
       minHeight="100vh"
-      bg={useColorModeValue('white', 'rgb(1, 6, 6)')}
+      bg={useColorModeValue('white', 'gray.800')}
     >
       {loading ? (
         <Stack direction="row" spacing={4}>
