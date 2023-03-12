@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import LandingScreen from './screen/LandingScreen';
 import LoginScreen from './screen/LoginScreen';
 import RegistrationScreen from './screen/RegistrationScreen';
+import ProfileScreen from './screen/ProfileScreen';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               path="/registration"
               element={<RegistrationScreen />}
             ></Route>
+            <Route path="/profile" element={<ProfileScreen />}></Route>
           </Routes>
         </main>
         <Footer />
