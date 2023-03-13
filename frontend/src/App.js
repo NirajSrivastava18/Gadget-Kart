@@ -9,6 +9,8 @@ import LandingScreen from './screen/LandingScreen';
 import LoginScreen from './screen/LoginScreen';
 import RegistrationScreen from './screen/RegistrationScreen';
 import ProfileScreen from './screen/ProfileScreen';
+import CheckoutScreen from './screen/CheckoutScreen';
+import OrderSuccessScreen from './screen/OrderSuccessScreen';
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
               element={<RegistrationScreen />}
             ></Route>
             <Route path="/profile" element={<ProfileScreen />}></Route>
+            <Route path="/checkout" element={<CheckoutScreen />}></Route>
+            <Route path="/order-success" element={<OrderSuccessScreen />} />
           </Routes>
         </main>
         <Footer />

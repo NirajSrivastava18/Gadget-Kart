@@ -8,6 +8,7 @@ node_modules/
 .env
 # testing
 /coverage
+/frontend/src/client_id
 
 # production
 /build
