@@ -28,7 +28,11 @@ import {
   ChevronDownIcon,
 } from '@chakra-ui/icons';
 import { CgProfile } from 'react-icons/cg';
-import { MdLocalShipping, MdLogout } from 'react-icons/md';
+import {
+  MdLocalShipping,
+  MdLogout,
+  MdOutlineAdminPanelSettings,
+} from 'react-icons/md';
 
 import { FaShoppingCart } from 'react-icons/fa';
 import { FiShoppingCart } from 'react-icons/fi';
@@ -147,6 +151,15 @@ const Navbar = () => {
                     <MdLocalShipping />
                     <Text ml="2">Your Orders</Text>
                   </MenuItem>
+                  {userInfo.isAdmin === 'true' && (
+                    <>
+                      <MenuDivider />
+                      <MenuItem as={ReactLink} to={'/admin-console'}>
+                        <MdOutlineAdminPanelSettings />
+                        <Text ml="2">Admin Console</Text>
+                      </MenuItem>
+                    </>
+                  )}
                   <MenuDivider />
                   <MenuItem onClick={logoutHandler}>
                     <MdLogout />
