@@ -28,7 +28,6 @@ const loginUser = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(401).send('Invalid Email or Password');
-    throw new Error('Invalid email or password');
   }
 });
 
@@ -51,8 +50,7 @@ const registerUser = asyncHandler(async (req, res) => {
       token: genToken(user._id),
     });
   } else {
-    res.json(400);
-    throw new Error('Invaild user data');
+    res.json(400).send('Invaild user data');
   }
 });
 
@@ -75,8 +73,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       created_at: updatedUser.createdAt,
     });
   } else {
-    res.status(404);
-    throw new Error('user not found');
+    res.status(404).send('user not found');
   }
 });
 
@@ -85,8 +82,7 @@ const getUserOrders = asyncHandler(async (req, res) => {
   if (orders) {
     res.json(orders);
   } else {
-    res.status(404);
-    throw new Error('No Orders found');
+    res.status(404).send('No Orders found');
   }
 });
 

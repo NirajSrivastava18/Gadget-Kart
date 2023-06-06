@@ -6,8 +6,9 @@
   "type": "module",
   "scripts": {
     "client": "npm run start --prefix frontend",
-    "server": "nodemon backend/index.js",
-    "app": "concurrently npm \"npm run server\" \"npm run client\""
+    "start": "nodemon backend/index.js",
+    "app": "concurrently npm \"npm run start\" \"npm run client\"",
+    "build": "cd frontend && npm install && npm run build "
   },
   "repository": {
     "type": "git",
